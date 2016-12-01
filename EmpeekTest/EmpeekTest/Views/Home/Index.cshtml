@@ -1,0 +1,74 @@
+﻿<style>
+    .container {
+        padding: 30px;
+    }
+
+    .link-dark {
+        color: gray;
+    }
+
+    .link-div {
+        display: flex;
+    }
+
+    .files-area {
+        margin-top: 10px;
+        padding: 10px 20px;
+        border: 2px solid #F2F2F2;
+    }
+
+    a {
+        color: #66B9F5;
+    }
+
+    table, td, th {
+        border: 1px solid #B3B3B3;
+        text-align: left;
+    }
+
+    table {
+        border-collapse: collapse;
+        width: 100%;
+    }
+
+    th {
+        background: #B3B3B3;
+        color: #fff;
+    }
+
+    th, td {
+        text-align: center;
+        padding: 15px;
+    }
+</style>
+
+
+<body style="background:#F7F7F7" data-ng-app="APIModule">
+    <div class="container" ng-controller="APIController">
+        <table>
+            <tr>
+                <th>Less 10Mb</th>
+                <th>10Mb-50Bb</th>
+                <th>More 100Mb</th>
+            </tr>
+            <tr>
+                <td>{{sizes.less}}</td>
+                <td>{{sizes.between}}</td>
+                <td>{{sizes.more}}</td>
+            </tr>
+        </table>
+        <br />
+        <br />
+        <br />
+        <div class="link-div"><div style="font-weight: bolder;">Current path: </div> &nbsp; <div> {{files.CurrentPath}}</div></div>
+        <div class="files-area">
+            <div class="link-div" data-ng-repeat="file in files.ObjectsList">
+                <a class="{{file.SpecialClass}}" href="" data-ng-click="goSomewhere(file.FullPath);">{{file.Name}}</a> &nbsp; <div>{{file.Description}}</div>
+            </div>
+        </div>
+    </div>
+</body>
+<script src="~/Scripts/angular.js"></script>
+<script src="~/Scripts/AngularScripts/Module.js"></script>
+<script src="~/Scripts/AngularScripts/Controller.js"></script>
+<script src="~/Scripts/AngularScripts/Service.js"></script>
